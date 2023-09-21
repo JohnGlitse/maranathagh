@@ -1,0 +1,1032 @@
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	list-style-type: none;
+/*	align-items: center;*/
+}
+
+html{
+	scroll-behavior: smooth;
+	transition: 2s;
+}
+html, body{
+	max-width: 100%;
+	overflow-x: hidden;
+}
+body{
+	color: var(--text-color);
+}
+i{
+	color: #ddd2a5;
+}
+:root{
+
+    /*...........................................
+         ALL COLORS USED
+    ..............................................	*/
+
+    --blue-color-1: #002e63;
+    --text-color: #fff;
+    --opaque-bg: rgba(0, 66, 107, 0.4);
+    --opaque-container: rgba(0, 66, 107, 0.6);
+    --opaque-dark: rgba(4, 9, 30, 0.95);
+    --opaque-dark-2: rgba(4, 9, 30, 0.8);
+	--dark-blue: #04091e;
+	--bg-color: rgb(0, 66, 107);
+	--icon-color: rgb(0, 72, 119);
+	--vs-color-1: #001733;
+	--vs-color-2: #001c40;
+	--vs-color-3: #002451;
+	--button-color: #ddd2a5;
+
+    /*...........................................
+    PADDING INFORMAITION
+    ..............................................	*/
+    --height-padding: 60px;
+    --width-padding: 40px;
+    --height-width-padding: 60px 40px;
+    
+
+    /*...........................................
+    FONT FAMILY
+    ..............................................	*/   
+	--slant-font: Lucida Calligraphy;
+	--h2-font: Imprint MT Shadow;    
+
+
+	--blur-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+	--dark-shadow: 0 0 10px;
+
+}
+    /*...........................................
+    STYLING THE HOMEPAGE INCLUDING HERO SECTION AND NAVIGATION BAR
+    ..............................................	*/
+
+#home{
+	background: url('images/room4.jpg') no-repeat center center/cover fixed;
+	width: 100%;
+	height: 150dvh;
+	position: relative;
+}
+
+.top-section{
+	width: 100%;
+	height: 40px;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+.top-section marquee{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+   /*...........................................
+    STYLING THE NAVIGATION BAR
+    ..............................................	*/
+nav{
+	width: 100%;
+	height: 60px;
+	background: var(--opaque-bg);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 40px;
+	color: #fff;
+	border-bottom: 4px solid var(--button-color);
+}
+.sticky{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: var(--dark-blue);
+	z-index: 2;
+}
+
+/*.content {
+  padding: 16px;
+}
+.sticky + .content {
+  padding-top: 60px;
+}*/
+
+nav ul{}
+
+nav ul li{
+	display: inline-block;
+	margin: 10px;
+}
+
+nav ul li a{
+	color: #fff;
+	font-size: 18px;
+	z-index: 5;
+	position: relative;
+}
+nav ul li a::before{
+	content: '';
+	width: 0;
+	height: 3px;
+	background: #fff;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	transition: 0.8s;
+}
+
+nav ul li:hover a::before{
+	width: 100%;
+}
+nav ul li a[href="#booking"]::before{
+	width: 0;
+}
+nav ul li a[href="#booking"]{
+	background: var(--button-color);
+	color: var(--blue-color-1);
+	padding: 6px 30px;
+	border-radius: 30px;
+}
+.logo{
+	font-size: 25px;
+	border: 2px solid #fff;
+	padding: 6px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.to-top{
+	position: fixed;
+	bottom: 30px;
+	right: 16px;
+	cursor: pointer;
+	opacity: 0;
+}
+.to-top.scrolled{
+	opacity: 1;
+}
+.to-top i{
+	background: var(--button-color);
+	color: var(--dark-blue);
+	font-size: 25px;
+	padding: 10px;
+	border-radius: 50%;
+}
+
+#menu-open{
+	display: none;
+	cursor: pointer;
+	font-size: 30px;
+}
+#menu-close{
+	display: none;
+}
+ 
+nav ul i{
+	display: none;
+	font-size: 40px;
+	position: absolute;
+	right: 0;
+	margin-right: 70px;
+	margin-top: ;
+	cursor: pointer;
+} 
+ 
+@media screen and (max-width: 779px) {
+	#menu-open{
+		display: block;
+	}
+	#menu-close{
+		display: block;
+	}
+ 
+	nav ul{
+		display: none;
+		background: var(--vs-color-1);
+		width: 100%;
+		padding: 30px 10px;
+		z-index: 1;
+		top: 0;
+		position: absolute;
+	}
+	nav ul.active{display: block; animation: navUl 1s linear;}
+    
+    /*@keyframes navUl{
+    	 
+    	100%{
+    		transform: scale(1.06);
+    	}
+    }*/
+
+	nav ul li{
+		display: block;
+		margin: 40px;
+		position: relative;
+		transition: 0.8s;
+	}	
+	nav ul i{
+		display: none;
+		font-size: 40px;
+		position: absolute;
+		right: 0;
+		margin-right: 70px;
+		margin-top: ;
+		cursor: pointer;
+	}
+	nav ul li a{
+/*		border-top: 1px solid #8a8a8a;*/
+	}
+}
+@media screen and (max-width: 926px) and (min-width: 780px){
+	#menu-open{
+		display: block;
+
+	}
+	#menu-close{
+		display: block;
+	}
+ 
+	nav ul li{
+		display: block;
+		margin: 20px;
+	}
+	nav ul{
+		display: none;
+		background: var(--vs-color-1);
+		width: 100%;
+		padding: 10px;
+		z-index: 1;
+		top: 0;
+		position: absolute;
+	}
+	nav ul.active{display: block;}
+	nav ul li a{
+/*		border-top: 1px solid #8a8a8a;*/
+	}
+
+
+}
+
+   /*...........................................
+    STYLING THE TEXT SECTION OF THE HOMEPAGE
+    ..............................................	*/
+
+.home{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around; 
+	align-items: center;
+}
+.home-container{
+	width: 100%;
+	height: 100%;
+	display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: flex-start;
+   margin-top: 10%;
+    text-align: center;
+}
+
+.home-welcome{
+	display: flex;
+	flex-direction: column;
+	width: 30%;
+	align-items: center;
+	gap: 20px;
+}
+.home-container h2{/*
+	font-family: var(--slant-font)*/;
+}
+.home-welcome a{
+	background: var(--button-color);
+	color: var(--blue-color-1);
+	padding: 6px 30px;
+	border-radius: 30px;	
+}
+
+@media screen and (max-width: 779px) {
+	#home{
+		min-height: 200vh;
+	}
+	.home{
+		height: ;
+	}
+	.home-container{
+		flex-direction: column;
+		align-items: center;
+		margin-top: 40%;
+	}
+	.home-container h2{
+		width: 70%;
+	}
+	.home-container p{
+		width: 80%;
+	}
+	.home-welcome{
+		width: 100%;
+	}
+}
+
+   /*...........................................
+    STYLING THE BOOKING SECTION
+    ..............................................	*/
+
+#booking{
+     width: 100%; 
+     display: flex; 
+     flex-direction: column;
+     justify-content: center; 
+     align-items: center; 
+}
+.booking-container{
+	width: 80%; 
+	height: 250px; 
+	background: var(--dark-blue);
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-top: 6px solid var(--button-color);
+}
+.booking-container form{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap: 15px;
+	align-items: center;
+	justify-content: center;
+}
+ 
+.booking-container .form-row{
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+.booking-container input{
+	width: 160px;
+	height: 40px;
+	padding: 3px 10px;
+	border: 1px solid #8a8a8a;
+	background: var(--dark-blue);
+	color: #8a8a8a;
+	font-size: 18px;
+	outline: none;
+}
+.booking-container h3{
+	font-size: 25px;
+}
+.booking-container input[type="submit"]{
+	background: var(--button-color);
+	color: var(--vs-color-1);
+} 
+
+@media screen and (max-width: 667px) {
+	#booking{
+	  height: 100%;
+	}
+	.booking-container{
+		width: 100%;
+		height: 40%;
+		flex-direction: column;
+	}
+	.booking-container form{
+
+	}
+
+	.booking-container .form-row{
+		flex-direction: column;
+	}
+	.booking-container input{
+		width: 90vw;
+	}
+
+	.booking-container  .form-col{
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+		justify-content: center;
+		align-items: center;
+	}
+
+
+}
+ 
+@media screen and (max-width: 926px) and (min-width: 668px) {
+	#booking{
+		height: 100%;
+		padding: 15px 0;
+	}
+	.booking-container{
+		height: 30%;
+
+	}
+	.booking-container form h3{
+        margin-bottom: 15px;
+	}
+	.booking-container .form-row{
+		flex-direction: column;
+		gap: ;
+	}
+	.booking-container  .form-col{
+		display: flex;
+		gap: 40px;
+	}
+
+	.booking-container input{
+		width: 230px;
+	}
+}
+   /*...........................................
+    STYLING THE ROOMS SECTION OF THE WEBSITE
+    ..............................................	*/
+#rooms{
+	width: 100%;
+	min-height: 100%;
+	background: var(--vs-color-1);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: var(--height-width-padding);
+	gap: 30px;
+}
+.rooms{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 25px;
+}
+.rooms .img{
+	width: 270px;
+	height: 270px;
+	background: var(--vs-color-3);
+	border-left: 6px solid var(--button-color);
+	border-top: 6px solid var(--button-color);
+	border-radius: 12px;
+	box-shadow: var(--blur-shadow);
+}
+.img img{
+	width: 100%;
+	height: 80%;
+	object-fit: cover;
+}
+@media screen and (max-width: 779px){
+	#rooms{
+		padding: 60px 20px;
+	}
+	.rooms .img{
+		width: 90%;
+	}
+}
+
+   /*.........................................................
+    THIS BLOCK OF CODES STYLE THE ABOUT SECTION OF THE WEBSITE
+    ..........................................................*/
+
+#about{
+	width: 100%;
+	min-height: 100%;
+	padding: var(--height-width-padding);
+	background: linear-gradient(var(--opaque-container), var(--opaque-container)), url('images/room1.jpg') no-repeat center/cover fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.about{
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+}
+.about-img{
+/*	width: min(400px, 90%);*/
+	flex: 1;
+}
+.about-img img{
+	width: 100%;
+	object-fit: cover;
+	border: 4px solid var(--button-color);
+	filter: grayscale(100%);
+	transition: 0.8s;
+}
+.about-img img:hover{
+	filter: grayscale(0);
+	transform: scale(1.05);
+}
+.about-text{
+	width: 50%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+
+
+@media screen and (max-width: 779px) {
+	.about{
+		flex-direction: column;
+		gap: 20px;
+	}
+	.about-text{
+		width: 100%;
+	}
+}
+
+   /*.........................................................
+    THIS BLOCK OF CODES STYLE THE FACILITES SECTION OF THE WEBSITE
+    ..........................................................*/
+
+    #facilities{
+    	background: linear-gradient(var(--opaque-dark), var(--opaque-dark)), url('images/room2.jpg') no-repeat center center/cover fixed;
+    	width: 100%;
+    	min-height: 100%;
+    	padding: var(--height-width-padding);
+    	display: flex;
+    	flex-direction: column;
+    	gap: 20px;
+    	justify-content: center;
+    	align-items: center;
+    }
+    .facilities{
+    	display: flex;
+    	gap: 15px;
+    	justify-content: center;
+        flex-wrap: wrap;
+    }
+    .facilities .box{
+    	width: 300px;
+    	height: 200px;
+    	background: var(--opaque-bg);
+    	border: 1px solid #8a8a8a;
+    	display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+        border-radius: 12px;
+        gap: 10px;
+    }
+    .box p{
+    	line-height: 25px;
+    }
+    .box span{
+    	display: flex; gap: 20px;
+    }
+    .box span i{
+    	font-size: 20px;
+    }
+    @media screen and (max-width: 779px){
+    	#facilities{
+    		padding: 60px 20px;
+    	}
+    	.facilities .box{
+    		width: 90%;
+    	/*	flex-direction: column;
+    		flex: 1;*/
+    	}
+    }
+
+    @media screen and (max-width: 300px) and (min-width: 160px) {
+    	#facilities{
+    		padding: 10px;
+    	}
+    	.facilities .box{
+    		width: 100%;
+    		height: 300px;
+    	}
+    }
+
+       /*.........................................................
+    THIS BLOCK OF CODES STYLE THE GALLERY SECTION OF THE WEBSITE
+    ..........................................................*/
+
+    #gallery{
+    	background: var(--vs-color-3);
+    	width: 100%;
+    	height: 90dvh;
+    	padding: 30px 0;
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    	align-items: center;
+    	gap: 30px;
+    }
+    .img-gallery{
+    	width: 90%;
+    	height: 90%;
+    	overflow: hidden;
+    	position: relative;
+
+    }
+    .gallery{
+    	width: 100%;
+    	height: 100%;
+    	display: flex;
+    }
+    .gal-img{
+    	min-width: 100%;
+    }
+    .gal-img img{
+        width: 100%;
+        object-fit: cover; 
+    }
+    .slide-icon{
+    	width: 100%;
+    	display: none;
+    	justify-content: space-between;
+    	position: absolute;
+    	bottom: 50%;
+    }
+    .img-gallery:hover .slide-icon{
+    	display: flex;
+    }
+    .slide-icon i{
+    	font-size: 20px;
+    	padding: 12px;
+    	border-radius: 50%;
+    	transform: translateY(50%);
+    	background: #fff;
+    	cursor: pointer;
+    	color: #000;
+    }
+    .slide-icon .fa-chevron-left{
+    	margin-left: 15px;
+    }
+    .slide-icon .fa-chevron-right{
+    	margin-right: 15px;
+    }
+
+    @media screen and (max-width: 779px){
+    	#gallery{
+    		height: 50vh;
+    	}
+    	.img-gallery{
+    		height: 100%;
+    	}
+    }
+
+           /*.........................................................
+    THIS BLOCK OF CODES STYLE THE RESTAURANT SECTION OF THE WEBSITE
+    ..........................................................*/
+#restaurant{
+    	background: linear-gradient(var(--opaque-dark-2), var(--opaque-dark-2)), url('images/room8.jpg') no-repeat center center/cover fixed;
+    	width: 100%;
+    	min-height: 100%;
+    	padding: var(--height-width-padding);
+    	display: flex;
+    	flex-direction: column;
+    	gap: 40px;
+    	justify-content: center;
+    	align-items: center;
+}    
+
+.restaurant{
+	display: flex;
+	justify-content: center;
+	gap: 40px;
+}
+.restaurant-col{
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+.res-col{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.res-col h3{
+	color: yellow;
+}
+.res-col p{
+	line-height: 25px;
+	color: #efefef;
+}
+
+@media screen and (max-width: 779px){
+	.restaurant{
+		flex-direction: column;
+	}
+}
+
+           /*.........................................................
+    THIS BLOCK OF CODES STYLE THE CALL FOR ACTION SECTION OF THE WEBSITE
+    ..........................................................*/
+
+    .best-place{
+    	background: url('images/room12.jpg') no-repeat center center/cover fixed;
+    	width: 100%;
+    	height: 200px;
+    	padding: 0 70px;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    }
+     .best-place h1{
+     	font-size: 35px;
+     	font-family: var(--slant-font);
+     }
+	.best-place a{
+		background: var(--button-color);
+		color: var(--blue-color-1);
+		padding: 6px 30px;
+		border-radius: 30px;
+		outline: none;	    	
+    }
+
+ .best-place1{
+    	background: url('images/room8.jpg') no-repeat center center/cover fixed;
+    	width: 100%;
+    	height: 200px;
+    	padding: 0 70px;
+    	display: flex;
+    	justify-content: space-between;
+    	align-items: center;
+    }
+ .best-place1 h1{
+     	font-size: 35px;
+     	font-family: var(--slant-font);
+     }
+     
+	.best-place1 a{
+		background: var(--button-color);
+		color: var(--blue-color-1);
+		padding: 6px 30px;
+		border-radius: 30px;
+		outline: none;	    	
+    }
+
+@media screen and (max-width: 779px){
+	.best-place{
+		flex-direction: column;
+		height: 30%;
+		padding: 15px 6px;
+	}
+	.best-place h1{
+		font-size: 25px;
+	}
+	.best-place1{
+		flex-direction: column;
+		height: 30%;
+		padding: 15px 6px;
+	}
+	.best-place1 h1{
+		font-size: 25px;
+	}
+}
+
+
+#contact{
+	width: 100%;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: var(--dark-blue);
+	padding: 60px 0;
+}
+.contact{
+	width: 96%;
+	height: 100%;
+	display: flex;
+	background: var(--dark-blue);
+	padding: 20px 10px;
+	border-radius: 6px;
+	box-shadow: 0 0 10px;
+	gap: 20px;
+}
+.contact .details{
+	flex: 1;
+	border-top: 4px solid var(--button-color);
+	border-bottom: 4px solid var(--button-color);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 30px;
+	padding: 20px 15px;
+	color: #8a8a8a;
+	box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.2);
+}
+.contact form{
+	flex: 2;
+ 	box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 12px 20px 0 rgba(0, 0, 0, 0.2);
+	display: flex;
+	flex-direction: column;
+	background: var(--dark-blue);
+	padding: 20px 15px;
+	align-items: flex-start;
+	border-top: 4px solid var(--button-color);
+	border-bottom: 4px solid var(--button-color);
+}
+form h3{
+	color: white;
+}
+.contact .row{
+	display: flex;
+	gap: 6px;
+	width: 100%;
+}
+.contact .col{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 8px;
+	width: 100%;
+}
+.contact form input{
+	width: 100%;
+	background: var(--dark-blue);
+	border: 1px solid #8a8a8a;
+	height: 30px;
+	font-size: 20px;
+	padding: 10px 6px;
+	outline: none;
+	color: var(--text-color);
+}
+.contact form input:focus{
+	background: #ff004f;
+}
+.contact form textarea{
+	width: 100%;
+	height: 100px;
+	outline: none;
+	border: 1px solid #8a8a8a;
+	padding: 10px 6px;
+	color: #fff;
+	font-size: 20px;
+	background: var(--dark-blue);
+	outline: none;
+}
+.contact form textarea:focus{
+	background: #ff004f;
+}
+.contact form label{
+	color: #8a8a8a;
+}
+.contact form button{
+	background: var(--button-color);
+	color: var(--vs-color-1);
+	padding: 6px 12px;
+	width: 40%;
+	margin-top: 10px;
+	border: 1px solid #8a8a8a;
+	font-size: 20px;
+	border-radius: 30;
+	cursor: pointer;
+}
+form .button{
+	width: 100%;
+	display: flex;
+    justify-content: flex-start;
+}
+.contact .details i{
+	color: var(--button-color);
+	padding: 3px;
+	background: var(--yellow-white);
+	border-radius: 3px;
+	margin-right: 6px;
+}
+
+@media screen and (max-width: 679px){
+
+.contact{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: center;
+}
+.contact form{
+	flex: 1;
+	width: 90%;
+}
+
+.contact .row{
+	display: flex;
+    flex-direction: column;
+}
+.contact .col{
+	display: flex;
+	flex-direction: column;
+}
+.contact form input{
+	width: 100%
+}
+.contact form textarea{
+	width: 100%;
+}
+.contact form button{
+	width: 100%;
+}
+.contact .details{
+	flex: 1;
+	width: 90%;
+}
+
+
+}
+
+@media screen and (max-width: 926px) and (min-width: 680px) {
+	.contact{
+		flex-direction: column;
+	}
+}
+
+
+
+#footer{
+	width: 100%; 
+	height: 100%; 
+	background: var(--vs-color-1);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 60px 40px;
+}
+.footer{
+	display: flex;
+	justify-content: space-around;
+}
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	flex: 1;
+}
+.foot{
+	display: flex;
+	flex: 1;
+}
+.footer h2{
+	margin-bottom: 20px;
+}
+.footer p{
+	color: #8a8a8a;
+}
+.footer-col-2 li{
+     margin-bottom: 10px;
+}
+.footer-col-2 li a{
+	color: #8a8a8a;
+}
+
+.footer-col-4 li{
+     margin-bottom: 10px;
+}
+.footer-col-4 li a{
+	color: #8a8a8a;
+}
+.newsletter{
+	display: flex;
+}
+.newsletter input{
+	border: 1px solid #8a8a8a;
+	outline: none;
+	height: 30px;
+	padding: 3px 10px;
+	background: var(--vs-color-1);
+}
+.newsletter button{
+	height: 30px;
+	margin-left: -4px;
+	border: none;
+	outline: none;
+	background: var(--button-color);
+	color: var(--vs-color-1);
+	padding: 3px 20px;
+	font-size: 18px;
+}
+.footer-col-3 p{
+	line-height: 25px;
+}
+.copyright{
+	color: #8a8a8a;
+	margin-top: 30px;
+}
+@media screen and (max-width: 679px){
+	.footer{
+		flex-direction: column;
+		gap: 20px;
+	}
+.foot{
+	flex-direction: column;
+	gap: 20px;
+}   	
+
+}
+@media screen and (max-width: 926px) and (min-width: 680px) {
+	.foot{
+		flex-direction: column;
+		gap: 20px;
+	}
+}
